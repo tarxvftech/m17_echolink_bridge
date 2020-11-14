@@ -1,0 +1,9 @@
+version: '3'
+services:
+  echolink_bridge:
+    build:
+      context: .
+    restart: always
+    ports:
+      - 17010:17010/udp
+      - 5198-5199:5198-5199/udp
