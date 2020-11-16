@@ -1,5 +1,5 @@
 from archlinux
-RUN pacman --noconfirm -Syyu base-devel git
+RUN pacman --noconfirm -Syyu base-devel git cmake
 RUN pacman --noconfirm -S codec2 python python-pip python-setuptools
 RUN pip install --upgrade pip numpy Cython wheel setuptools
 #above is from m17 requirements from pyM17 and might need to be updated later
@@ -13,7 +13,7 @@ workdir /build
 RUN chmod 777 -R /build
 RUN ls -latr
 RUN git clone https://aur.archlinux.org/pkgbuilder.git && chown builduser:builduser -R pkgbuilder/ && cd pkgbuilder && ls -altr && sudo -u builduser makepkg --noconfirm -fsri
-RUN sudo -u builduser pkgbuilder --noconfirm -S svxlink
+RUN sudo -u builduser pkgbuilder --noconfirm -S svxlink svxlink-sounds-en_us-heather-16k
 
 workdir /app
 
